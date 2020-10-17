@@ -3,11 +3,11 @@ const path = require('path');
  
 const app = express();
 
-app.use(express.static(__dirname + './dist/login-api-heroku'));
+app.use(express.static(__dirname + '/dist/login-api-heroku'));
  
 app.get('/*', function(req,res) {
- 
-res.sendFile('index.html', {root: 'dist/login-api-heroku'});
+    
+res.sendFile(path.join(__dirname));
 });
  
-app.listen(process.env.PORT || 4000);
+app.listen(process.env.PORT || 4000,()=> console.log("Running.."));
